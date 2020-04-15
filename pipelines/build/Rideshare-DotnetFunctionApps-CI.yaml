@@ -1,3 +1,13 @@
+# Node.js
+# Build a general Node.js project with npm.
+# Add steps that analyze code, save build artifacts, deploy, and more:
+# https://docs.microsoft.com/azure/devops/pipelines/languages/javascript
+
+trigger:
+- master
+
+pool:
+  vmImage: 'ubuntu-latest'
 resources:
   - repo: self
 variables:
@@ -6,8 +16,7 @@ variables:
     !**/*Test*.csproj
   testProjects: '**/*Test*/*.csproj'
   buildConfiguration: 'Release'
-queue:
-  name: Azure Pipelines
+
 steps:
   - task: DotNetCoreCLI@2
     displayName: Restore
